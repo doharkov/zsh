@@ -41,6 +41,31 @@ compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"            # cache metadata file
 zstyle ':completion:*' menu select                     # interactive completion menu selection
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # case-insensitive
 
+# Fuzzy Finder
+# macOS / Homebrew (Apple Silicon)
+if [[ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ]]; then
+  source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+  source /opt/homebrew/opt/fzf/shell/completion.zsh
+fi
+
+# macOS / Homebrew (Intel)
+if [[ -f /usr/local/opt/fzf/shell/key-bindings.zsh ]]; then
+  source /usr/local/opt/fzf/shell/key-bindings.zsh
+  source /usr/local/opt/fzf/shell/completion.zsh
+fi
+
+# Ubuntu/Debian
+if [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]]; then
+  source /usr/share/doc/fzf/examples/key-bindings.zsh
+  source /usr/share/doc/fzf/examples/completion.zsh
+fi
+
+# Local Git-cloned fzf
+if [[ -f "$HOME/.fzf/shell/key-bindings.zsh" ]]; then
+  source "$HOME/.fzf/shell/key-bindings.zsh"
+  source "$HOME/.fzf/shell/completion.zsh"
+fi
+
 # Install plugins
 source "$ZDOTDIR/plugins.zsh"
 
