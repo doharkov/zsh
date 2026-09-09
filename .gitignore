@@ -1,0 +1,6 @@
+*.zwc
+.zcompdump*
+local.zsh
+.DS_Store
+plugins/
+./plugins/
